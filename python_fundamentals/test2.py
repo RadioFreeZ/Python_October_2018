@@ -1,29 +1,21 @@
-class Human:
-    def __init__(self,*args):
+class Card:
+    def __init__(self, value, type):
+        self.value = value
+        self.type = type
+    def show(self):
+        print("Value: ", self.value, "Type: ", self.type)
+class Deck:
+    def __init__(self, name):
+        self.deck = []
         self.name = name
-        self.health = 5
-        self.intelligence = 3
-        self.strength = 2
-        self.stealth = 1
-class Wizard(Human):
-    def __init__(self):
-        super().__init__() # use super to call the Human __init__() method
-        self.intelligence = 10 # every wizard starts off with 10 intelligence, overwriting the 3 from Human
-    def heal(self):
-        self.health += 10 # all wizards also get a heal() method
-class Ninja(Human):
-    def __init__(self):
-        super().__init__() # use super to call the Human __init__() method
-        self.stealth = 10 # every Ninja starts off with 10 stealth, overwriting the stealth of 1 from Human
-    def steal(self):
-        self.stealth += 5 # all ninjas also get a steal() method
-class Samurai(Human):
-    def __init__(self):
-        super().__init__() # use super to call the Human __init__() method
-        self.strength = 10 # every Samurai starts off with 10 strength, overwriting the 2 from Human
-    def sacrifice(self):
-        self.health -= 5 # all samurais also get a sacrifice() method
-
-
-Boy = Human("Rincewind")
-Boy.heal()
+        for i in ["clubs", "diamonds", "hearts", "spades"]:
+            for j in range(1,14):
+                self.deck.append( Card(j, i ) )
+    def show(self):
+        print("\n", "*"*30, self.name, "*"*30)
+        for card in self.deck:
+            card.show()
+d1 = Deck("First Deck")
+d1.show()
+d2 = Deck("Second Deck")
+d2.show()
