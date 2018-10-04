@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    *{
+      margin: 0px;
+    }
+    .black{
+      color: black;
+      background-color: black;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+    }
+    .red{
+      color: red;
+      background-color: red;
+      display:inline-block;
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+  <body>
+    <div id="main"><!--
+    -->{% for i in range(8)%}<!--
+      --><div class="row"><!--
+
+      -->{% if i % 2 == 0 %}<!--
+
+      -->{% for j in range(8)%}<!--
+        -->{% if j%2 == 0 %}<!--
+        --><div class="red"><!-- --></div><!--
+        -->{% else %}<!--
+        --><div class="black"><!-- --></div><!--
+        -->{% endif %}<!--
+      -->{% endfor %}<!--
+        -->{% else %}<!--
+        -->{% for j in range(8)%}<!--
+        -->{% if j%2 == 0 %}<!--
+        --><div class="black"><!-- --></div><!--
+            -->{% else %}<!--
+            --><div class="red"><!-- --></div><!--
+            -->{% endif %}<!--
+          -->{% endfor %}<!--
+      --></div><!--
+      -->{% endif %}<!--
+      -->{% endfor %}<!--
+
+    --></div>
+  </body>
+</html>

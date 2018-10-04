@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Playground 1</title>
+    <style>
+      *{
+        margin: 0px;
+        padding: 0px;
+      }
+      #wrapper{
+        width: 1500px;
+      }
+      body {
+      background-color: white;
+      }
+      h1 {
+      color: maroon;
+      text-align: center;
+      }
+      .box{
+        background-color: LightBlue;
+        display: inline-block;
+        vertical-align: top;
+        height: 200px;
+        width: 200px;
+        margin: 20px;
+      }
+      #good{
+        margin-left: 410px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Welcome</h1>
+      {% for count in range(num) %}
+        <div class="box"></div>
+      {% endfor %}
+
+      </div>
+    </div>
+  </body>
+</html>
