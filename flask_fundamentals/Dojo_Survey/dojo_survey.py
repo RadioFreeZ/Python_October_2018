@@ -14,9 +14,11 @@ def create_user():
     name = request.form['name']
     location = request.form['location']
     language = request.form['language']
+    if language == "C++":
+        language = "C++!? You Maniac!"
     comment = request.form['comment']
     return render_template("result.html", name=name,location=location,language=language,comment=comment)
-    
+
 @app.route('/danger')
 
 def danger():
