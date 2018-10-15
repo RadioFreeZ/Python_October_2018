@@ -1,0 +1,8 @@
+1.Dojo.objects.create(name = "CodingDojo Seattle", city = "Seattle", state = "WA")
+2.Dojo.objects.all().delete()
+3.Same as 1
+4.Ninja.objects.create(first_name = "Ian", last_name = "Hurd", dojo = Dojo.objects.first())
+5.Ninja.objects.create(first_name = "Henry", last_name = "Kim", dojo = Dojo.objects.get(id=2))
+6.Ninja.objects.create(first_name = "Ryan", last_name = "Chery", dojo = Dojo.objects.last())
+7.Dojo.objects.first().ninjas.all()
+8.Dojo.objects.last().ninjas.all()
