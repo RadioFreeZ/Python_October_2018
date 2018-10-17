@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center">These Are all my friends!</h1>
+		<ul>
+			{% for friend in friends %}
+				<li>First name: {{friend['first_name']}}</li>
+		        <li>Last name: {{friend['last_name']}}</li>
+		        <li>Occupation: {{friend['occupation']}}</li>
+		    {% endfor %}
+		</ul>
+		<h1>Add a friend</h1>
+		<form action="/create_friend" method="post" >
+			<label>First Name:</label>
+			<input type="text" name="first_name">
+			<label>Last Name:</label>
+			<input type="text" name="last_name">
+			<label>Occupation:</label>
+			<input type="text" name="occupation">
+			<input type="submit">
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+</head>
+<body>
+	<h1>My Registration Form</h1>
+	{% with messages = get_flashed_messages(category_filter=['true']) %}
+        	{% if messages %}
+          		{% for message in messages %}
+           	 		<p class="text-success">{{message}}</p>
+         	 	{% endfor %}
+        	{% endif %}
+      	{% endwith %}
+	<form action="/result" method="post">
+		<p>
+			<label class="ml-2" for="firstName" method	>First Name:</label>
+			<input id="firstName" type="name" name="firstName" placeholder="John">
+		</p>
+		{% with messages = get_flashed_messages(category_filter=['firstName']) %}
+        	{% if messages %}
+          		{% for message in messages %}
+           	 		<p class="text-danger">{{message}}</p>
+         	 	{% endfor %}
+        	{% endif %}
+      	{% endwith %}
+		<p>
+			<label class="ml-2" for="lastName">Last Name:</label>
+			<input id="lastName" type="name" name="lastName" placeholder="Smith">
+		</p>
+		{% with messages = get_flashed_messages(category_filter=['lastName']) %}
+        	{% if messages %}
+          		{% for message in messages %}
+           	 		<p class="text-danger">{{message}}</p>
+         	 	{% endfor %}
+        	{% endif %}
+      	{% endwith %}
+
+		<p>
+			<label class="ml-2" for="email">Email:</label>
+			<input id="email" type="text" name="email" placeholder="your email">
+		</p>
+		{% with messages = get_flashed_messages(category_filter=['email']) %}
+        	{% if messages %}
+          		{% for message in messages %}
+           	 		<p class="text-danger">{{message}}</p>
+         	 	{% endfor %}
+        	{% endif %}
+      	{% endwith %}
+		<p>
+			<label class="ml-2" for="password">Password:</label>
+			<input id="password" type="password" name="password" placeholder="your password">
+			<label class="ml-2" for="passwordConfirm">PW Confirm</label>
+			<input id="passwordConfirm" type="password" name="passwordConfirm" placeholder="your password">
+		</p>
+		{% with messages = get_flashed_messages(category_filter=['password']) %}
+        	{% if messages %}
+          		{% for message in messages %}
+           	 		<p class="text-danger">{{message}}</p>
+         	 	{% endfor %}
+        	{% endif %}
+      	{% endwith %}
+		<input class="ml-2" type="submit">
+	</form>
+</body>
+</html>
+</body>
+</html>

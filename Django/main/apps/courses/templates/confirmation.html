@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Are you sure you want to delete the following course?</h2>
+      <p>Name: {{course_confirm.name}}</p>
+      <p>Description: {{course_confirm.description}}</p>
+      <form class="form-group" action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="button" class="btn" >No</button>
+      </form>
+      <form class="form-group" action="{% url 'delete' id=course_confirm.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="button" class="btn btn-danger" >Yes</button>
+      </form>
+    </div>
+  </body>
+</html>

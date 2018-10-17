@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      {% with errors = get_flashed_messages(category_filter=["home"]) %}
+      {% if errors %}
+          {% for msg in errors %}
+                  <p class="error">{{ msg }}</p>
+          {% endfor %}
+      {% endif %}
+      {% endwith %}
+      <h1>Welcome, you've been logged in, {{session['first_name']}}</h1>
+      <form action="/logout" method="post">
+        <button type="submit" name="button">Logout!</button>
+
+      </form>
+    </div>
+  </body>
+</html>

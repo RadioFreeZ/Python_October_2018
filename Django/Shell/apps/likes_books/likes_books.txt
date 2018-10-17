@@ -1,0 +1,21 @@
+1.  User.objects.create(first_name = "Ian", last_name = "Hurd", email = "coolmanmchurd@gmail.com")
+    User.objects.create(first_name = "Henry", last_name = "Kim", email = "sheepy@gmail.com")
+    User.objects.create(first_name = "Josh", last_name = "Geese", email = "geeseman@gmail.com")
+
+2.  Book.objects.create(name = "Farenheit 451", desc = "Good", uploader = User.objects.first())
+
+3.  Book.objects.create(name = "Of Mice and Men", desc = "Good", uploader = User.objects.get(id = 2))
+
+4.  Book.objects.create(name = "Washington Square", desc = "Fantastic", uploader = User.objects.last())
+
+5.  user = User.objects.first()
+    book = Book.objects.first()
+    user.liked_books.add(book)
+
+6.  user2.liked_books.add(book)
+
+7.
+
+8.  User.objects.filter(liked_books=1)
+
+9.  Book.objects.first().uploader

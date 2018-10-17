@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <style type="text/css">
+    	.guess_box{
+    		display: inline-block;
+    		background-color: red;
+    		width: 200px;
+    		height: 200px;
+    	}
+    	.good_box{
+    		display: inline-block;
+    		background-color: green;
+    		width: 200px;
+    		height: 200px;
+    	}
+    </style>
+</head>
+<body>
+	<div class="container">
+		<h2 class="text-center">Welcome to the Great Number Game!</h2>
+		<p class="text-center">I am thinking of a number between 1 and 100</p>
+		<p class="text-center">Take a guess!</p>
+		<div class="text-center">
+			{% if guess == number %}
+				<div class="good_box">
+					<h2>{{number}} was the number!</h2>
+					<form action="/reset" method="post">
+						<button type="submit">Play Again!</button>
+					</form>
+				</div>
+			{% else %}
+				{% if guess > 0 %}
+					{% if guess > number %}
+						<div class="guess_box">
+							<h3>Too High!</h3>
+						</div>
+					{% elif guess < number %}
+						<div class="guess_box">
+							<h3>Too Low!</h3>
+						</div>
+					{%endif%}
+				{%endif%}
+				<form action="/guess" method="post">
+					<input type="text" name="userGuess">
+					<button type="submit">Submit</button>
+				</form>
+			{%endif%}
+			
+		</div>
+	</div>
+
+</body>
+</html>

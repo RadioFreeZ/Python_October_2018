@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+window.onload = function () {
+
+var options = {
+	title: {
+		text: "Desktop OS Market Share in 2017"
+	},
+	subtitles: [{
+		text: "As of November, 2017"
+	}],
+	animationEnabled: true,
+	data: [{
+		type: "pie",
+		startAngle: 40,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - {y}%",
+		dataPoints: [
+			{ y: 48.36, label: "Windows 7" },
+			{ y: 26.85, label: "Windows 10" },
+			{ y: 1.49, label: "Windows 8" },
+			{ y: 6.98, label: "Windows XP" },
+			{ y: 6.53, label: "Windows 8.1" },
+			{ y: 2.45, label: "Linux" },
+			{ y: 3.32, label: "Mac OS X 10.12" },
+			{ y: 4.03, label: "Others" }
+		]
+	}]
+};
+$("#chartContainer").CanvasJSChart(options);
+
+}
+</script>
+</head>
+<body>
+<div class="container">
+		<div class="header">
+			<input type="date" name="first_date">
+			<input type="date" name="second_date">
+			<button type="submit">Update</button>
+		</div>
+		<h3>List of all customers and # of leads</h3>
+		<table class="table table-dark">
+	      <thead class="thead-light">
+	        <tr>
+	          <th scope="col">Customer Name</th>
+	          <th scope="col">Number Of Leads</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	      {% for client in clients %}
+	        <tr>
+	          <td>{{client['name']}}</td>
+	          <td>{{client['leads']}}</td>
+	        </tr>
+	      {%endfor%}
+	      </tbody>
+	    </table>
+	    <h2>Customers and number of new leads</h2>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</body>
+</html>

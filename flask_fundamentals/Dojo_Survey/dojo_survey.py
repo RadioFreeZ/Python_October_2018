@@ -17,7 +17,15 @@ def create_user():
     if language == "C++":
         language = "C++!? You Maniac!"
     comment = request.form['comment']
-    return render_template("result.html", name=name,location=location,language=language,comment=comment)
+    if len(name) < 1:
+        flash("Name cannot be empty", 'Name')
+    if len(comment) < 1:
+        flash("Comment cannot be empty", 'Comment')
+    if len(comment) > 120:
+        flash("Comment cannot have more than 120 characters", 'Comment')
+        return redirect('/')
+    else:
+        return render_template("result.html", name=name,location=location,language=language,comment=comment)
 
 @app.route('/danger')
 

@@ -1,0 +1,38 @@
+1.  b= Book.objects.get(name="C sharp")
+    b.name = "C#"
+    b.save()
+
+2.  a = Author.objects.get(first_name="Jay")
+    a.name = "Ketul"
+    a.save()
+
+3.  book1 = Book.objects.get(name="C#")
+    book2 = Book.objects.get(name="Java")
+    author = Author.objects.get(first_name="Mike")
+    author.books.add(book1,book2)
+
+4.  book1 = Book.objects.get(name="C#")
+    book2 = Book.objects.get(name="Java")
+    book3 = Book.objects.get(name="Python")
+    author = Author.objects.get(name="Speros")
+    author.books.add(book1,book2,book3)
+
+5.  book1 = Book.objects.get(name="C#")
+    book2 = Book.objects.get(name="Java")
+    book3 = Book.objects.get(name="Python")
+    book4 = Book.objects.get(name="PHP")
+    author = Author.objects.get(name="John")
+    author.books.add(book1,book2,book3,book4)
+
+6.  book1 = Book.objects.get(name="C#")
+    book2 = Book.objects.get(name="Java")
+    book3 = Book.objects.get(name="Python")
+    book4 = Book.objects.get(name="PHP")
+    book5 = Book.objects.get(name="Ruby")
+    author = Author.objects.get(name="Jadee")
+    author.books.add(book1,book2,book3,book4,book5)
+
+7.  Book.objects.get(name="Python").authors
+
+8.  b = Book.objects.get(name="Python").authors.first()
+    b.delete()
